@@ -16,8 +16,7 @@ Este é o meu primeiro projeto prático de programação, desenvolvido majoritar
 
 ## 🖼️ Demonstração
 
-![Preview do Projeto](./preview.png)  
-*(adicione um print da tela principal do projeto com o nome `preview.png` na pasta do repositório para aparecer aqui)*
+![Preview do Projeto](./preview.png)
 
 ---
 
