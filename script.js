@@ -19,6 +19,7 @@ function adicionarTarefa() {
         document.getElementById("mensagem").style.color = ("#28a73dff");
         tarefasAdicionadas.push(tarefa);
         exibirTarefaNaTela();
+        exibirLimparTudo();
 
     } else {
         alterarMensagem("mensagem", "Ops! Digite uma tarefa válida!");
@@ -49,12 +50,13 @@ function adicionarTarefa() {
         novaTarefa.appendChild(botaoRemover);
         novaTarefa.appendChild(botaoEditar);
         listaTarefas.appendChild(novaTarefa);
-     }
- }
+     }}
+
  function removerTarefa(i) {
         tarefasAdicionadas.splice(i, 1);
         exibirTarefaNaTela(); 
-        alterarMensagem("mensagem", "Tarefa removida!");
+        exibirLimparTudo();
+        alterarMensagem("mensagem", "Tarefa removida com sucesso!");
         document.getElementById("mensagem").style.color = ("#a72833ff");
 
  }
@@ -64,10 +66,32 @@ function adicionarTarefa() {
        if (tarefaEditada.trim() != "" && regex.test(tarefaEditada)){
         tarefasAdicionadas[i] = tarefaEditada;
         exibirTarefaNaTela();
-        alterarMensagem("mensagem", "Tarefa alterada!");
-        document.getElementById("mensagem").style.color = ("28a73dff");
+        alterarMensagem("mensagem", "Tarefa alterada com sucesso!");
+        document.getElementById("mensagem").style.color = ("#28a73dff");
         
        } else {
         alert ("Ops! Digite uma tarefa válida!");
         editarTarefa(i);
  }}
+
+function exibirLimparTudo() {
+    const botaoLimpar = document.getElementById("botaoLimpar");
+    if (!botaoLimpar) return;
+
+    if (tarefasAdicionadas.length > 0){
+    botaoLimpar.style.display = "inline-block"
+    } else {
+    botaoLimpar.style.display = "none"
+}}
+
+ function limparLista(){
+    if (confirm("Tem certeza que deseja limpar a lista?")){
+    tarefasAdicionadas.length = 0;
+    exibirTarefaNaTela();
+    exibirLimparTudo();
+    alterarMensagem("mensagem", "Lista de tarefas limpa com sucesso!")
+ }}
+
+window.onload = () => {
+  exibirLimparTudo();
+};

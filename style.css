@@ -108,3 +108,6 @@ button.editar:hover {
     background-color: #60041A;
     color: #F4F0EA;
 }
+#botaoLimpar {
+  display: none;
+}
